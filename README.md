@@ -6,6 +6,7 @@
 
 **1.** Desarrollar un programa que ingrese un número entero n y separe todos los digitos que componen el número.
 
+Para el desarrollo de este programa se creó la función **def separarDigitos()** en la cual, primero se crea una lista vacía que, por medio de un bucle while que va separando los dígitos del número, almacena los dígitos en una lista desde el ultimo hasta el primero y luego con **digitosNum.reverse()** invirte los elementos para que en la lista que retorna la función, aparezcan los dígitos en el orden del número ingresado. 
 ```python
 
 def separarDigitos(n : int) -> list: # la entrada de la función es un número entero
@@ -26,6 +27,7 @@ if __name__ == "__main__":
 
 **2.** Desarrollar un programa que ingrese un número flotante n y separe su parte entera de la parte decimal, y luego entregue los dígitos tanto de la parte entera como de la decimal.
 
+En este caso, es necesario importar el módulo **math** para poder ejecutar la función **def separar()**, en la cual se utiliza la función **math.modf()** que permite separar la parte entera y la parte decimal de un número; por último se crea un lista que contiene los dígitos del número ingresado sin tomar en cuenta el punto decimal.
 ```python
 
 import math
@@ -45,9 +47,10 @@ if __name__ == "__main__":
 
 **3.** Desarrollar un programa que permita ingresar dos números enteros y determinar si se tratan de números espejos, definiendo números espejos.
 
+Para determinar si dos números ingresados por el usuario son espejos, se creó la función **def invertirNumero()** la cual contiene una variable, al inicio igual a 0, en la que con un ciclo while se separan los dígitos del primer número para invertirlos y tener como resultado el el primer numero de manera invertida. Teniendo el primer numero invertido, el segundo número ingresado se compara con éste.
 ```python
 
-def invertir_numero(a : int) -> int: #la funcion recibe un entero y retorna un entero
+def invertirNumero(a : int) -> int: #la funcion recibe un entero y retorna un entero
     invertido = 0 #variable para almacenar el numero invertido
     while a != 0: #condición de número diferente de cero para iniciar el ciclo
         invertido = 10*invertido+a % 10 #toma los digitos de atras hacia adelante
@@ -57,7 +60,7 @@ def invertir_numero(a : int) -> int: #la funcion recibe un entero y retorna un e
 if __name__== "__main__":
     a= int(input("ingrese un numero entero: "))
     b = int(input("ingrese un numero entero: "))
-    invert = invertir_numero(a)
+    invert = invertirNumero(a)
     if b == invert:
         print(str(a) + " y " + str(b) + " son números espejos")
     else:
@@ -65,11 +68,10 @@ if __name__== "__main__":
 
 ```
 
-**4.** Diseñar una función que permita calcular una aproximación de la función coseno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Taylor. Calcule con cuántos términos de la serie (i.e: cuáles valores de n), se tienen errores del 10%, 1%, 0.1% y 0.001%.
-
-**5.** Desarrollar un programa que permita determinar el Minimo Comun Multiplo de dos numeros enteros. Abordar el problema desde una perpectiva tanto iterativa como recursiva.
 
 **6.** Desarrollar un programa que determine si en una lista existen o no elementos repetidos.
+
+Inicialmente se crea la función **def elementRepetidos()** y utilizando un ciclo for se recorre la lista ingresada y con **lista.count()** se cuenta si algún elemento se repite dos veces o más dentro de la lista, si es así la función retorna **True**, de lo contrario retorna **False**.
 
 ```python
 
@@ -89,6 +91,8 @@ if __name__ == "__main__":
 ```
 
 **7.** Desarrollar un programa que determine si en una lista se encuentra una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
+
+Se creó la función **def vocales()**, en la que primero se tiene una lista vacía en la que se almacenarán los elementos que tengan dos o más vocales; con un ciclo for se recorre la lista y se crea una lista en la que se tienen en cuenta letra por letra cada uno de los elementos y luego con **len()** se verifica la cantidad de vocales de un elemento, si tiene dos o más se utiliza **cadenaVocales.append()** para agregar dichos elementos a la lista vacía inicial; después también utilizando **len()** se verifica si no hay ningún elemeto con dos o más vocales, si es así, la función retorna ""no existe"" o de lo contrario retorna la lista con los elementos con dos o más vocales.
 
 ```python
 
@@ -112,6 +116,7 @@ if __name__ == "__main__":
 
 **8.** Desarrollar un programa que dadas dos listas determine que elementos tiene la primer lista que no tenga la segunda lista.
 
+El usuario ingresa dos listas y con la función **def difLista()** se comparan ambas listas. Primero se crea una lista vacía para almacenar los elementos diferentes en la primera lista compararda con la segunda; para ello, con un ciclo for se recorre la lista y utilizando **if** se pone la condición de comparar los elementos que no estén en la segunda lista y que sí se encuentren en la primera para que con **diferentes.append()**, estos elementos diferentes se almacenen en la lista vacía del principio. La función retorna la lista con elementos diferentes.
 ```python
 
 def difLista(listaA:list, listaB:list) -> list: # las entradas de la función serán las dos listas
@@ -137,7 +142,4 @@ if __name__ == "__main__":
     print (elementDif)
 ```
 
-**9.** Resolver el punto 7 del taller 1 usando operaciones con vectores.
-
-**10.** Suponga que se tiene una lista A con ciertos números enteros. Desarrolle una función que, independientemente de los números que se encuentran en la lista A, tome aquellos números que son múltiplos de 3 y los guarde en una lista nueva, la cual debe ser retornada por la función. Implemente la perspectiva de un patrón de acumulación y también de comprensión de listas. Desafío: Si ya lo logró, inténtelo ahora sin utilizar el módulo (%).
 
